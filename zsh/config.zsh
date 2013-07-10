@@ -4,7 +4,7 @@ else
   export PS1='%3~$(git_info_for_prompt)%# '
 fi
 
-export LSCOLORS="exfxcxdxbxegedabagacad"
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 export CLICOLOR=true
 
 fpath=($ZSH/functions $fpath)
@@ -12,8 +12,8 @@ fpath=($ZSH/functions $fpath)
 autoload -U $ZSH/functions/*(:t)
 
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=$HISTSIZE
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
