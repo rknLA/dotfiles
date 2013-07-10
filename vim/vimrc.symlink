@@ -50,6 +50,6 @@ set wildignore+=*.pyc
 :command Q q
 :command Qa qa
 :command Wq wq
-:command wQ wq
+:command WQ wq
 :command W w
 
