@@ -1,0 +1,55 @@
+
+filetype plugin indent on
+
+set nocompatible
+set mouse=a
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+set showmatch
+set incsearch
+set hlsearch
+set ignorecase smartcase
+set cursorline
+set cmdheight=2
+set switchbuf=useopen
+set number
+set numberwidth=5
+set showtabline=2
+
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+set backspace=indent,eol,start
+set showcmd
+
+syntax on
+set background=dark
+
+set wildmode=longest,list
+set wildmenu
+
+:set statusline=%<%f\ (%{&ft})\ %-4(%m%)%=%-19(%3l,%02c%03V%)
+
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+function! MapCR()
+	nnoremap <cr> :nohlsearch<cr>
+endfunction
+call MapCR()
+
+let g:CommandTMaxFiles=20000
+set wildignore+=*.pyc
+
+:command Q q
+:command Qa qa
+:command Wq wq
+:command wQ wq
+:command W w
+
