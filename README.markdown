@@ -1,4 +1,8 @@
-# holman does dotfiles
+# rknLA stole holman's dotfiles
+
+The rest of the readme is verbatim @holman's readme.
+
+Most of the differences here are just personalizations.
 
 ## dotfiles
 
