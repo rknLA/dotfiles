@@ -14,6 +14,7 @@ alias gxa="gitx --all"
 alias gb="git branch"
 alias gbl="gb"
 alias gs="git st -sb"
+alias gl="git l"
 alias d="git diff"
 alias gco="git checkout $*"
 
