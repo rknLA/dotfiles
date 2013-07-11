@@ -12,3 +12,5 @@ else
   alias ll="ls -lG"
   alias lla="ls -laG"
 fi
+
+alias j="jobs"
