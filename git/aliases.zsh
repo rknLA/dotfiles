@@ -15,6 +15,7 @@ alias gb="git branch"
 alias gbl="gb"
 alias gs="git st -sb"
 alias gl="git l"
+alias gla="git l --all"
 alias d="git diff"
 alias gco="git checkout $*"
 
