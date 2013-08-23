@@ -53,3 +53,5 @@ set wildignore+=*.pyc
 :command WQ wq
 :command W w
 
+" arduino syntax highlighting
+autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
