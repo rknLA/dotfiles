@@ -14,3 +14,5 @@ else
 fi
 
 alias j="jobs"
+
+alias rknla="ssh rkn@192.241.223.78"
