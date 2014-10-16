@@ -56,4 +56,7 @@ set wildignore+=*.pyc
 " arduino syntax highlighting
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
+" go syntax highlighting
+au BufRead,BufNewFile *.go set filetype=go
+
 set exrc
