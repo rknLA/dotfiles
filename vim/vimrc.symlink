@@ -53,10 +53,17 @@ set wildignore+=*.pyc
 :command WQ wq
 :command W w
 
+set cc=80
+
+
+
 " arduino syntax highlighting
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
 " go syntax highlighting
 au BufRead,BufNewFile *.go set filetype=go
+
+" fix .md markdown files (i.e. kill modula2 syntax)
+autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 set exrc
