@@ -365,7 +365,7 @@ prompt_rkn_setup() {
     local -A pc
     pc[default]='default'
     pc[date]='cyan'
-    pc[time]='Blue'
+    pc[time]='cyan'
     pc[host]='Green'
     pc[user]='cyan'
     pc[punc]='yellow'
@@ -420,6 +420,7 @@ prompt_rkn_setup() {
     #RPROMPT+="$pc[user]%n$pc[reset]"
     #RPROMPT+=" $p_line"
 
+  RPROMPT="$pc[time]%D{%d.%m.%Y [%H:%M:%S]}$pc[reset]"
 	export PROMPT RPROMPT
 	precmd_functions+='prompt_wunjo_precmd'
 }
@@ -431,9 +432,45 @@ prompt_rkn_job_count() {
   if [ "$JOB_COUNT" -ne '0' ]; then
     echo "[$pc[jobs]$JOB_COUNT$pc[reset]]"
   fi
-
-
 }
+
+prompt_strlen() {
+  THE_STRING=$1
+  local zero='%(BSUbfksu]|([FB]|){*})'
+  LEN=${#${(S%%)THE_STRING//$~zero/}}
+  echo $LEN
+}
+
+prompt_rprompt_timestamp() {
+  # This didn't wind up working because of the colors, and trailing characters
+  # The extra %{%} made it prohibitively ugly to actually use
+  # For now, just settle for the time that the prompt was displayed,
+  # which solves half of the problem i was originally going for.
+	local -A pc
+	pc=(${(kv)wunjo_prompt_colors})
+
+  DATE=$( date +"%d.%m.%Y [%H:%M:%S]" )
+  local len_right=$(prompt_strlen "$DATE" )
+  len_right=$(( $len_right+9 )) # 9 instead of 1 because of color codes?
+  local right_start=$(($COLUMNS - $len_right))
+
+  local len_cmd=$( prompt_strlen "$@" )
+  local len_prompt=$( prompt_strlen "$PROMPT" )
+  local len_left=$(($len_cmd + $len_prompt))
+  RDATE="\033[${right_start}C ${DATE}"
+
+  if [ $len_left -lt $right_start ]; then
+    # command should not overwrite the right prompt,
+    # so move it up a line
+    # (and hopefully the above line is ok to overwrite)
+    echo "$pc[time]\033[1A$RDATE"
+    echo -n "%{$pc[reset]%}"
+  else
+    echo "$pc[time]$RDATE"
+    echo -n "%{$pc[reset]%}"
+  fi
+}
+
 
 prompt_wunjo_precmd() {
 	local ex=$?
