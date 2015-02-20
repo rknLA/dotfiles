@@ -12,7 +12,7 @@ zgit_chpwd_hook() {
 
 zgit_preexec_hook() {
   if [[ $2 == git\ * ]] || [[ $2 == *\ git\ * ]]; then
-    zgit_precmd_do_up
+    zgit_precmd_do_update=1
   fi
 }
 
