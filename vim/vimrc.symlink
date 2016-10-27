@@ -55,8 +55,6 @@ set wildignore+=*.pyc
 
 set cc=80
 
-
-
 " arduino syntax highlighting
 autocmd BufNewFile,BufReadPost *.ino,*.pde set filetype=cpp
 
