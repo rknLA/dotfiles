@@ -40,3 +40,6 @@ setopt complete_aliases
 zle -N newtab
 
 bindkey -e
+
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
