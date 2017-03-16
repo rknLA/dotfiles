@@ -1,3 +1,6 @@
+execute pathogen#infect()
+
+let g:CommandTWildIgnore=&wildignore . ",*.pyc,__pycache__,data/dist/*,data/src/*"
 
 filetype plugin indent on
 
@@ -52,6 +55,8 @@ set wildignore+=*.pyc
 :command Wq wq
 :command WQ wq
 :command W w
+
+nmap <c-p> Oimport ipdb; ipdb.set_trace()
 
 set cc=80
 
