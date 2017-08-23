@@ -56,7 +56,7 @@ set wildignore+=*.pyc
 :command WQ wq
 :command W w
 
-nmap <c-p> Oimport ipdb; ipdb.set_trace()
+nmap <c-p> oimport pdb; pdb.set_trace()
 
 set cc=80
 
