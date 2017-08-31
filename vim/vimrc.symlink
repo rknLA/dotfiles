@@ -53,6 +53,8 @@ set wildignore+=*.pyc
 :command WQ wq
 :command W w
 
+nmap <c-p> oimport pdb; pdb.set_trace()[m
+
 set cc=80
 
 " arduino syntax highlighting
